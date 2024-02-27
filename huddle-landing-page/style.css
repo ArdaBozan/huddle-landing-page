@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+* {
+  font: inherit;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:focus,
+button:active,
+input:focus,
+textarea:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root{
+    --ff-header: "Poppins", sans-serif;
+    --ff-body: "Open Sans", sans-serif;
+
+    --fw-bold: 600;
+    --fw-normal: 400;
+
+    --fs-header: 2.4em;
+    --fs-body: 1em;
+
+    --size-icon: 2.5em;
+
+    --clr-bg: hsl(257, 40%, 49%);
+    --clr-hover: hsl(300, 69%, 71%);
+    --clr-icon-hover: hsl(300, 69%, 61%);
+    --clr-text: hsl(0, 0%, 100%);
+}
+
+h1{
+    font-family: var(--ff-header);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-header);
+}
+
+p{
+    opacity: .8;
+}
+
+button{
+    max-width: fit-content;
+    padding: 1em 4.3em;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: var(--clr-bg);
+    background-color: #fff;
+    border-radius: 100vw;
+    border: 0;
+    transition: .3s;
+}
+
+button:is(:hover,:focus-visible){
+  background-color: var(--clr-hover);
+  color: var(--clr-text);
+}
+footer svg:is(:hover,:focus-visible){
+  fill: var(--clr-icon-hover);
+  border-color: var(--clr-icon-hover);
+}
+
+
+/* Styling */
+body{
+    display: grid;
+    place-items: center;
+    color: var(--clr-text);
+    font-weight: var(--fw-normal);
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    background-image: url("images/bg-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--clr-bg);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 3em;
+}
+
+header{
+    display: flex;
+    min-width: 100%;
+    justify-content: start;
+    margin-bottom: 5em;
+}
+
+header img{
+    /*max-width: 15%;*/
+    max-width: 13em;
+}
+
+footer{
+    display: flex;
+    min-width: 100%;
+    justify-content: end;
+    gap: 1em;
+    align-items: center;
+}
+
+footer svg{
+    max-width: var(--size-icon);
+    border: 1px solid #fff;
+    padding: .6em;
+    border-radius: 100vw;
+    fill: #fff;
+    cursor: pointer;
+}
+
+.container{
+    padding-inline: 1em;
+    /*display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+    gap: 1.8em;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+}
+
+.container-left{
+    min-width: 60%;
+}
+
+.container-right{
+    display: grid;
+    max-width: 40%;
+}
+
+.container-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1.7em;
+    margin-top: 3em;
+}
+
+
+@media (width<=70.125em){
+  body{
+    padding: 3em 0;
+    background-image: url("images/bg-mobile.svg");
+  }
+
+  header{
+    margin-inline: auto;
+    min-width: 80%;
+  }
+  
+  .container{
+    flex-direction: column;
+  }
+
+  .container-right{
+    max-width: 100%;
+  }
+
+  .container-left img{
+    max-width: 20rem;
+  }
+
+  .container-left{
+    min-width: auto;
+  }
+
+  .container *,
+  footer{
+    margin-inline: auto;
+  }
+
+  .container-info{
+    gap: 2.5em;
+    text-align: center;
+  }
+  
+  .container-info h1{
+    max-width: 20ch;
+  }
+
+  .container-info p{
+    max-width: 35ch;
+  }
+
+  footer{
+    justify-content: center;
+    margin-top: 5em;
+  }
+}
+
+@media (width>=30em) and (width<=70.125em){
+  .container-left img{
+    max-width: 40rem;
+  }
+
+  .container-info h1{
+    max-width: 30ch;
+  }
+
+  .container-info p{
+    max-width: 55ch;
+  }
+}
